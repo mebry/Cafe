@@ -8,7 +8,7 @@ namespace Cafe.Data
     /// <summary>
     /// The order collection class.
     /// </summary>
-    public class OrderCollection : IData<IOrder>, IFindOrders
+    public class OrderCollection : IData<IOrder>, IFindByOrders
     {
         private readonly List<IOrder> _orders;
 
@@ -24,6 +24,7 @@ namespace Cafe.Data
 
             _orders = orders;
         }
+
         /// <summary>
         /// A method for adding one order.
         /// </summary>
@@ -44,14 +45,13 @@ namespace Cafe.Data
         /// <param name="start"></param>
         /// <param name="end"></param>
         /// <returns></returns>
-        public IEnumerable<IOrder> FindByRange(TypeOfProduct typeOfProduct, DateTime start, DateTime end)
+        public IEnumerable<IOrder> FindOrdersByRange(DateTime start, DateTime end)
         {
             List<IOrder> orders = new List<IOrder>();
 
             foreach (var order in _orders)
             {
-                if (order.Date >= start && order.Date <= end &&
-                    order.GetAll().ToList().TrueForAll(i => i.TypeOfProduct.Equals(typeOfProduct)))
+                if (order.Date >= start && order.Date <= end)
                 {
                     orders.Add(order);
                 }
@@ -60,14 +60,68 @@ namespace Cafe.Data
             return orders;
         }
 
-        public IEnumerable<Tuple<IIngredient, int>> FindMaxUsedIngredients()
+        /// <summary>
+        /// A method for calculating the cost of an order in a range, divided into types.
+        /// </summary>
+        /// <param name="typeOfProduct"></param>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <returns></returns>
+        public int FindPriceByRange(TypeOfProduct typeOfProduct,DateTime start, DateTime end)
         {
-            throw new NotImplementedException();
+            int price = 0;
+
+            foreach (var order in _orders)
+            {
+                if (order.Date >= start && order.Date <= end &&
+                    order.GetAll().ToList().TrueForAll(i => i.TypeOfProduct.Equals(typeOfProduct)))
+                {
+                    price+=order.TotalPrice;
+                }
+            }
+
+            return price;
         }
 
-        public IEnumerable<Tuple<IIngredient, int>> FindMinUsedIngredients()
+        /// <summary>
+        /// The method of searching for the most common type.
+        /// </summary>
+        /// <returns></returns>
+        public TypeOfProduct FindMaxUsedIngredients()
         {
-            throw new NotImplementedException();
+            TypeOfProduct result = FindProducts().Max();
+
+            return result;
+        }
+
+        /// <summary>
+        /// The method of searching for the most frequently encountered type.
+        /// </summary>
+        /// <returns></returns>
+        public TypeOfProduct FindMinUsedIngredients()
+        {
+            TypeOfProduct result = FindProducts().Min();
+
+            return result;
+        }
+
+        /// <summary>
+        /// Finding product types.
+        /// </summary>
+        /// <returns></returns>
+        private List<TypeOfProduct> FindProducts()
+        {
+            var types = new List<TypeOfProduct>();
+
+            foreach (var order in _orders)
+            {
+                foreach (var item in order.GetAll())
+                {
+                    types.Add(item.TypeOfProduct);
+                }
+            }
+
+            return types;
         }
 
         /// <summary>

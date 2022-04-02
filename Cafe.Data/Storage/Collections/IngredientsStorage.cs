@@ -77,6 +77,7 @@ namespace Cafe.Bll
 
             _ingredients.Add(item);
         }
+
         /// <summary>
         /// Method for getting a list of ingredients stored in the storage.
         /// </summary>
