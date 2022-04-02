@@ -8,6 +8,6 @@ namespace Cafe.DI.Interfaces.User
     public interface IManager:IPerson
     {
         int CalculationPrice(IMeal meals);
-        IOrder CreateOrder(IMeal meals);
+        IOrder CreateOrder(IClient client);
     }
 }

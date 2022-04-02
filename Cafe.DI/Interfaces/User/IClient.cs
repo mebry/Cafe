@@ -13,5 +13,6 @@ namespace Cafe.DI.Interfaces.User
 
         void PutMoney(int amount);
         IMeal CreateOrder();
+        void Pay(int price);
     }
 }
