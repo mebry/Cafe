@@ -3,30 +3,31 @@ using System.Collections.Generic;
 using System.Linq;
 using Cafe.DI.Enums;
 using Cafe.Tests.TestData;
+using Cafe.DI.Interfaces.Models;
 using Cafe.Bll.Models.Request;
 
 namespace Cafe.Tests.ModelTests.Request
 {
     [TestClass]
-    public class MealTests
+    public class OrderTests
     {
         ///<summary>
         /// Checking the constructor when passing a null parameter.
         /// </summary>
         [TestMethod]
-        public void Meal_AddNullListByConstructor_ThrowsException()
+        public void Order_AddNullListByConstructor_ThrowsException()
         {
             Assert.ThrowsException<System.ArgumentNullException>(() =>
-                new Meal(null));
+                new Order(1, System.DateTime.Now, null));
         }
 
         /// <summary>
         /// Checking the constructor when passing the correct parameter.
         /// </summary>
         [TestMethod]
-        public void Meal_AddValidParameterByConstructor_IsTrue()
+        public void Order_AddValidParameterByConstructor_IsTrue()
         {
-            new Meal(new List<(TypeOfProduct, string)> { });
+            new Order(1, System.DateTime.Now, new List<IPlatter>());
         }
 
         /// <summary>
@@ -35,7 +36,7 @@ namespace Cafe.Tests.ModelTests.Request
         [TestMethod]
         public void ReadAll_CorrectnessOfTheWorkByMethod_IsTrue()
         {
-            var data = new Meal(GetData.GetDataForMeal());
+            var data = new Order(1, System.DateTime.Now, GetData.GetPlatters());
 
             int count = data.GetAll().Count();
 
@@ -61,9 +62,9 @@ namespace Cafe.Tests.ModelTests.Request
         [TestMethod]
         public void Add_CorrectnessOfTheWorkByMethod_IsTrue()
         {
-            var data = new Meal(new List<(TypeOfProduct, string)> { });
+             var data = new Order(1, System.DateTime.Now, new List<IPlatter>());
 
-            data.Add((TypeOfProduct.Dish, " "));
+            data.Add(new Platter(TypeOfProduct.Dish,"NoN",1));
             int count = data.GetAll().Count();
 
             Assert.IsTrue(count == 1);
@@ -73,50 +74,16 @@ namespace Cafe.Tests.ModelTests.Request
         /// Checking the method for correct execution.
         /// </summary>
         [TestMethod]
-        public void Add_CorrectnessOfTheWorkByMethod_IsFalse()
-        {
-            var data = new Meal(new List<(TypeOfProduct, string)> { });
-
-            data.Add((TypeOfProduct.Dish, " "));
-            int count = data.GetAll().Count();
-
-            Assert.IsFalse(count == 0);
-        }
-
-        /// <summary>
-        /// Checking the method for correct execution.
-        /// </summary>
-        [TestMethod]
         public void Remove_CorrectnessOfTheWorkByMethod_IsTrue()
         {
-            var data = new Meal(new List<(TypeOfProduct, string)> { });
+            var data = new Order(1, System.DateTime.Now, new List<IPlatter>());
 
-            data.Add((TypeOfProduct.Dish, " "));
-            data.Add((TypeOfProduct.Dish, " "));
+            data.Add(new Platter(TypeOfProduct.Dish, "NoN", 1));
             int count = data.GetAll().Count();
-
-            data.Remove((TypeOfProduct.Dish, " "));
+            data.Remove(new Platter(TypeOfProduct.Dish, "NoN", 1));
             int currentCount = data.GetAll().Count();
 
-            Assert.IsTrue(count == currentCount + 1);
-        }
-
-        /// <summary>
-        /// Checking the method for correct execution.
-        /// </summary>
-        [TestMethod]
-        public void Remove_CorrectnessOfTheWorkByMethod_IsFalse()
-        {
-            var data = new Meal(new List<(TypeOfProduct, string)> { });
-
-            data.Add((TypeOfProduct.Dish, " "));
-            data.Add((TypeOfProduct.Dish, " "));
-            int count = data.GetAll().Count();
-
-            data.Remove((TypeOfProduct.Dish, " "));
-            int currentCount = data.GetAll().Count();
-
-            Assert.IsFalse(count == currentCount);
+            Assert.IsTrue(count == currentCount+1);
         }
     }
 }
