@@ -1,11 +1,11 @@
-﻿using Newtonsoft.Json;
-
-namespace Cafe.DI.SerializationInterfaces
+﻿namespace Cafe.DI.SerializationInterfaces
 {
-    public interface ISerializationData<T>
+    /// <summary>
+    /// An interface describing a contract that implements data serialization and deserialization.
+    /// </summary>
+    /// <typeparam name="T">General type.</typeparam>
+    public interface ISerializationData<T> : ISerialize, IDeserialize
     {
-        void Read();
-        void Restore(params JsonConverter[] jsonConverter);
         IEnumerable<T> GetAll();
     }
 }
