@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json.Converters;
 using Cafe.DI.Interfaces.Operation.Processing;
 using Cafe.DI.Enums;
-using Cafe.Bll.Models;
+using Cafe.Bll.Models.Prescription;
 
 namespace Cafe.Data.Storage.Converters
 {
