@@ -39,6 +39,11 @@ namespace Cafe.Bll.Models.Warehouse
         [JsonProperty(PropertyName = "MaxTemperature")]
         public int MaxTemperature { get; }
 
+        /// <summary>
+        /// Redefined method.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public override bool Equals(object? obj)
         {
             return obj is Conditions conditions &&
@@ -46,6 +51,10 @@ namespace Cafe.Bll.Models.Warehouse
                    MaxTemperature == conditions.MaxTemperature;
         }
 
+        /// <summary>
+        /// Redefined method.
+        /// </summary>
+        /// <returns></returns>
         public override int GetHashCode()
         {
             return HashCode.Combine(MinTemperature, MaxTemperature);
