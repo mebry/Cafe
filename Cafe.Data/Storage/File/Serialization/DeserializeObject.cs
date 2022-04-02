@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using Cafe.DI.SerializationInterfaces;
 
 namespace Cafe.Data.Storage.Serialization
 {
@@ -7,24 +6,7 @@ namespace Cafe.Data.Storage.Serialization
     /// The class responsible for deserialization.
     /// </summary>
     public class DeserializeObject 
-    {/*
-        /// <summary>
-        /// Constructor for filling the path.
-        /// </summary>
-        /// <param name="path"></param>
-        /// <exception cref="ArgumentNullException"></exception>
-        /// <exception cref="ArgumentException"></exception>
-        public DeserializeObject(string path)
-        {
-            if (path == null)
-                throw new ArgumentNullException(nameof(path));
-
-            if (path.Length == 0)
-                throw new ArgumentException(nameof(path));
-
-            _path = path;
-        }*/
-
+    {
         /// <summary>
         /// The method responsible for deserialization.
         /// </summary>
