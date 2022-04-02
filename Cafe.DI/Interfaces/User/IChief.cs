@@ -1,7 +1,7 @@
 ﻿using Cafe.DI.Interfaces.Models;
 using Cafe.DI.Interfaces.Recipe;
 
-namespace Cafe.DI.UserInterfaces
+namespace Cafe.DI.Interfaces.User
 {
     /// <summary>
     /// Interface describing the behavior of the chef.

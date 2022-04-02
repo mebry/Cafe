@@ -1,4 +1,4 @@
-﻿namespace Cafe.DI.UserInterfaces
+﻿namespace Cafe.DI.Interfaces.User
 {
     /// <summary>
     /// Interface with the name property.

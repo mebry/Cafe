@@ -1,6 +1,6 @@
 ﻿using Cafe.DI.Interfaces.Models;
 
-namespace Cafe.DI.UserInterfaces
+namespace Cafe.DI.Interfaces.User
 {
     /// <summary>
     /// Interface describing the behavior of the manager.
