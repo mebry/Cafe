@@ -2,6 +2,9 @@
 
 namespace Cafe.DI.ModelInterfaces
 {
+    /// <summary>
+    /// Describes the ingredient that will be used for cooking in the future.
+    /// </summary>
     public interface IIngredient
     {
         int Price { get; }
