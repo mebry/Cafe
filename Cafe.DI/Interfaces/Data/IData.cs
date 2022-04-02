@@ -1,4 +1,4 @@
-﻿namespace Cafe.DI.DataInterfaces
+﻿namespace Cafe.DI.Interfaces.Data
 {
     /// <summary>
     /// The interface responsible for working with a collection of elements.

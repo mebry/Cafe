@@ -1,6 +1,6 @@
 ﻿using Cafe.DI.Enums;
 
-namespace Cafe.DI.ModelInterfaces
+namespace Cafe.DI.Interfaces.Models
 {
     /// <summary>
     /// Describes the ingredient that will be used for cooking in the future.

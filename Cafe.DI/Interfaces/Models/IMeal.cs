@@ -1,7 +1,7 @@
-﻿using Cafe.DI.DataInterfaces;
+﻿using Cafe.DI.Interfaces.Data;
 using Cafe.DI.Enums;
 
-namespace Cafe.DI.ModelInterfaces
+namespace Cafe.DI.Interfaces.Models
 {
     public interface IMeal:IData<(TypeOfProduct,string)>
     {

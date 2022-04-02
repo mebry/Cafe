@@ -1,6 +1,6 @@
-﻿using Cafe.DI.DataInterfaces;
+﻿using Cafe.DI.Interfaces.Data;
 
-namespace Cafe.DI.ModelInterfaces
+namespace Cafe.DI.Interfaces.Models
 {
     /// <summary>
     /// The interface responsible for ordering dishes.

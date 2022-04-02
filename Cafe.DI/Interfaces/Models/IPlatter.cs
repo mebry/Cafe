@@ -1,6 +1,6 @@
 ﻿using Cafe.DI.Enums;
 
-namespace Cafe.DI.ModelInterfaces
+namespace Cafe.DI.Interfaces.Models
 {
     /// <summary>
     /// The type of dish and its cost.

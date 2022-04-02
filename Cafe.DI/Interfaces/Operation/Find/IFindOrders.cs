@@ -1,7 +1,7 @@
 ﻿using Cafe.DI.Enums;
-using Cafe.DI.ModelInterfaces;
+using Cafe.DI.Interfaces.Models;
 
-namespace Cafe.DI.OperationInterfaces.Find
+namespace Cafe.DI.Interfaces.Operation.Find
 {
     /// <summary>
     /// Interface describing the main types of search.

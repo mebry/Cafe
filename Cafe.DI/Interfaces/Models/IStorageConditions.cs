@@ -1,4 +1,4 @@
-﻿namespace Cafe.DI.ModelInterfaces
+﻿namespace Cafe.DI.Interfaces.Models
 {
     /// <summary>
     /// Storage conditions.

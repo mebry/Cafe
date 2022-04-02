@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace Cafe.DI.SerializationInterfaces
+namespace Cafe.DI.Interfaces.Serialization
 {
     /// <summary>
     /// An interface describing a contract that implements data deserialization.

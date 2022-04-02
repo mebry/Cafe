@@ -1,4 +1,4 @@
-﻿using Cafe.DI.ModelInterfaces;
+﻿using Cafe.DI.Interfaces.Models;
 
 namespace Cafe.DI.UserInterfaces
 {

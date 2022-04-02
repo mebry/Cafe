@@ -1,6 +1,6 @@
-﻿using Cafe.DI.OperationInterfaces.Processing;
+﻿using Cafe.DI.Interfaces.Operation.Processing;
 
-namespace Cafe.DI.OperationInterfaces.Find
+namespace Cafe.DI.Interfaces.Operation.Find
 {
     /// <summary>
     /// Interface describing the main types of search.

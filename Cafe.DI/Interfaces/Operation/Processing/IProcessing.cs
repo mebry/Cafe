@@ -1,6 +1,6 @@
 ﻿using Cafe.DI.Enums;
 
-namespace Cafe.DI.OperationInterfaces.Processing
+namespace Cafe.DI.Interfaces.Operation.Processing
 {
     /// <summary>
     /// Interface describing the type of processing.

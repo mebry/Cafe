@@ -1,7 +1,7 @@
 ﻿using Cafe.DI.Enums;
-using Cafe.DI.ModelInterfaces;
+using Cafe.DI.Interfaces.Models;
 
-namespace Cafe.DI.RecipeInterfaces
+namespace Cafe.DI.Interfaces.Recipe
 {
     /// <summary>
     /// Interface describing the cooking step of the dish.

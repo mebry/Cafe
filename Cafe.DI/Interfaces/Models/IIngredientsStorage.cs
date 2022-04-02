@@ -1,7 +1,7 @@
 ﻿using Cafe.DI.Enums;
-using Cafe.DI.DataInterfaces;
+using Cafe.DI.Interfaces.Data;
 
-namespace Cafe.DI.ModelInterfaces
+namespace Cafe.DI.Interfaces.Models
 {
     /// <summary>
     /// Storage of ingredients with different temperatures.

@@ -1,5 +1,5 @@
-﻿using Cafe.DI.ModelInterfaces;
-using Cafe.DI.RecipeInterfaces;
+﻿using Cafe.DI.Interfaces.Models;
+using Cafe.DI.Interfaces.Recipe;
 
 namespace Cafe.DI.UserInterfaces
 {
