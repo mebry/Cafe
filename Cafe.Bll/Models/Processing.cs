@@ -9,7 +9,9 @@ namespace Cafe.Bll.Models
     /// </summary>
     public class Processing : IProcessing
     {
+        [JsonIgnore]
         private static Semaphore s_semaphore=new Semaphore(3, 3);
+        [JsonIgnore]
         private Thread _thread;
 
         /// <summary>
