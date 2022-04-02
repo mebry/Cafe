@@ -78,7 +78,7 @@ namespace Cafe.Bll.Models.Users
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public void Pay(int price)
         {
-            if (price <= 0)
+            if (price < 0)
             {
                 throw new ArgumentOutOfRangeException(nameof(price));
             }
