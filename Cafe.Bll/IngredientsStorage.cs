@@ -9,7 +9,7 @@ namespace Cafe.Bll
     /// </summary>
     public class IngredientsStorage : IIngredientsStorage
     {
-        [JsonProperty(PropertyName = "_platers")]
+        [JsonProperty(PropertyName = "_ingredients")]
         private List<(IIngredient, int)> _ingredients;
 
         /// <summary>
@@ -25,9 +25,6 @@ namespace Cafe.Bll
         public IngredientsStorage(List<(IIngredient, int)> ingredients, int numberOfPlaces,
             int maxGrammingForOneIngredients, IStorageConditions storageConditions)
         {
-            if (ingredients.Count <= 0)
-                throw new ArgumentException(nameof(ingredients));
-
             if (ingredients == null)
                 throw new ArgumentNullException(nameof(ingredients));
 
@@ -46,13 +43,13 @@ namespace Cafe.Bll
             StorageConditions = storageConditions;
         }
 
-        [JsonProperty(PropertyName = "_platers")]
+        [JsonProperty(PropertyName = "NumberOfPlaces")]
         public int NumberOfPlaces { get; }
 
-        [JsonProperty(PropertyName = "_platers")]
+        [JsonProperty(PropertyName = "MaxGrammingForOneIngredients")]
         public int MaxGrammingForOneIngredients { get; }
 
-        [JsonProperty(PropertyName = "_platers")]
+        [JsonProperty(PropertyName = "StorageConditions")]
         [JsonConverter(typeof(ConcreteTypeConverter<Conditions>))]
         public IStorageConditions StorageConditions { get; }
 
