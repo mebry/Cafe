@@ -21,7 +21,7 @@ namespace Cafe.Bll.Models.Users
         /// <exception cref="ArgumentNullException"></exception>
         public Client(int balance, int id, IMeal meal, string name)
         {
-            if (balance <= 0)
+            if (balance < 0)
                 throw new ArgumentOutOfRangeException(nameof(balance));
 
             if (id <= 0)
@@ -84,6 +84,9 @@ namespace Cafe.Bll.Models.Users
             }
 
             _balance -= price;
+
+            if (_balance < 0)
+                throw new ArgumentException("The balance is negative");
         }
     }
 }
