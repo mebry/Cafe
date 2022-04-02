@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace Cafe.Bll
+namespace Cafe.Bll.Service.Converter
 {
     // The class responsible for type substitution, instead of an abstract entity,
     // a concrete implementation will be substituted during serialization.

@@ -1,5 +1,6 @@
 ﻿using Cafe.DI.Interfaces.Models;
 using Cafe.DI.Interfaces.User;
+using Cafe.Bll.Models.Request;
 
 namespace Cafe.Bll.Models.Users
 {

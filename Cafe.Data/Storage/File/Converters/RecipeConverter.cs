@@ -2,7 +2,7 @@
 using Cafe.DI.Interfaces.Models;
 using Cafe.DI.Interfaces.Recipe;
 using Cafe.DI.Enums;
-using Cafe.Bll.Models;
+using Cafe.Bll.Models.Prescription;
 
 namespace Cafe.Data.Storage.Converters
 {
