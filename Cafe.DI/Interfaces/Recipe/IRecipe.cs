@@ -6,7 +6,7 @@ namespace Cafe.DI.Interfaces.Recipe
     /// <summary>
     /// Interface describing the finished recipe.
     /// </summary>
-    public interface IProduct
+    public interface IRecipe
     {
         int TotalPrice { get; }
         string Name { get; }
