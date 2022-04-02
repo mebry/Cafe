@@ -10,7 +10,7 @@ namespace Cafe.Bll
     public class IngredientsStorage : IIngredientsStorage
     {
         [JsonProperty(PropertyName = "_platers")]
-        private List<Tuple<IIngredient, int>> _ingredients;
+        private List<(IIngredient, int)> _ingredients;
 
         /// <summary>
         /// Constructor for filling in data.
@@ -22,7 +22,7 @@ namespace Cafe.Bll
         /// <exception cref="ArgumentException"></exception>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public IngredientsStorage(List<Tuple<IIngredient, int>> ingredients, int numberOfPlaces,
+        public IngredientsStorage(List<(IIngredient, int)> ingredients, int numberOfPlaces,
             int maxGrammingForOneIngredients, IStorageConditions storageConditions)
         {
             if (ingredients.Count <= 0)
@@ -62,7 +62,7 @@ namespace Cafe.Bll
         /// <param name="item"></param>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public void Add(Tuple<IIngredient, int> item)
+        public void Add((IIngredient, int) item)
         {
             if (item.Item1 == null)
                 throw new ArgumentNullException(nameof(item));
@@ -79,7 +79,7 @@ namespace Cafe.Bll
         /// Method for getting a list of ingredients stored in the storage.
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<Tuple<IIngredient, int>> GetAll()
+        public IEnumerable<(IIngredient, int)> GetAll()
         {
             return _ingredients;
         }
@@ -91,7 +91,7 @@ namespace Cafe.Bll
         /// <param name="numberOfGrams"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentException"></exception>
-        public Tuple<IIngredient, int> GetIngredients(TypeOfIngredient typeOfIngredient, int numberOfGrams)
+        public (IIngredient, int) GetIngredients(TypeOfIngredient typeOfIngredient, int numberOfGrams)
         {
             foreach (var ingredient in _ingredients)
             {
@@ -111,7 +111,7 @@ namespace Cafe.Bll
         /// <param name="item"></param>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public void Remove(Tuple<IIngredient, int> item)
+        public void Remove((IIngredient, int) item)
         {
             if (item.Item1 == null)
                 throw new ArgumentNullException(nameof(item));
