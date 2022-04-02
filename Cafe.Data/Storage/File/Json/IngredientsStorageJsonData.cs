@@ -2,7 +2,6 @@
 using Cafe.DI.Interfaces.Serialization;
 using Cafe.DI.Interfaces.Models;
 using Cafe.Data.Storage.Serialization;
-using Cafe.Bll;
 
 namespace Cafe.Data.Storage.Json
 {
@@ -36,16 +35,27 @@ namespace Cafe.Data.Storage.Json
             _path = path;
         }
 
+        /// <summary>
+        /// The method responsible for writing the data.
+        /// </summary>
         public void Write()
         {
             SerializeObject.Serialize<IIngredientsStorage>(_path, _ingredientsStorage);
         }
 
+        /// <summary>
+        /// The method responsible for reading the data.
+        /// </summary>
+        /// <param name="jsonConverter"></param>
         public void Restore(params JsonConverter[] jsonConverter)
         {
             _ingredientsStorage = DeserializeObject.Deserialize<IIngredientsStorage>(_path, jsonConverter).ToList();
         }
 
+        /// <summary>
+        /// A method that returns a set of elements.
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<IIngredientsStorage> GetAll() => _ingredientsStorage;
     }
 }

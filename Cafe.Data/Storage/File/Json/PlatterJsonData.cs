@@ -53,6 +53,10 @@ namespace Cafe.Data.Storage.Json
             _platters = DeserializeObject.Deserialize<IPlatter>(_path, jsonConverter).ToList();
         }
 
+        /// <summary>
+        /// A method that returns a set of elements.
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<IPlatter> GetAll() => _platters;
     }
 }

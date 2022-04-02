@@ -1,26 +1,26 @@
 ﻿using Newtonsoft.Json;
 using Cafe.DI.Interfaces.Serialization;
-using Cafe.DI.Interfaces.Models;
 using Cafe.Data.Storage.Serialization;
+using Cafe.DI.Interfaces.Operation.Processing;
 
 namespace Cafe.Data.Storage.Json
 {
     /// <summary>
     /// A class for writing and reading data from a file by serialization and deserialization.
     /// </summary>
-    public class OrderJsonData : ISerializationData<IOrder>
+    public class ProcessingJsonData : ISerializationData<IProcessing>
     {
-        private List<IOrder> _orders;
+        private List<IProcessing> _processings;
         private string _path;
 
         /// <summary>
         /// Constructor for filling in data.
         /// </summary>
         /// <param name="path">The path where the file will be contained.</param>
-        /// <param name="orders">List of elements.</param>
+        /// <param name="platters">List of elements.</param>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="ArgumentException"></exception>
-        public OrderJsonData(string path, List<IOrder> orders)
+        public ProcessingJsonData(string path, List<IProcessing> processing)
         {
             if (path == null)
                 throw new ArgumentNullException(nameof(path));
@@ -28,10 +28,10 @@ namespace Cafe.Data.Storage.Json
             if (path == "")
                 throw new ArgumentException(nameof(path));
 
-            if (orders == null)
-                throw new ArgumentNullException(nameof(orders));
+            if (processing == null)
+                throw new ArgumentNullException(nameof(processing));
 
-            _orders = orders;
+            _processings = processing;
             _path = path;
         }
 
@@ -40,7 +40,7 @@ namespace Cafe.Data.Storage.Json
         /// </summary>
         public void Write()
         {
-            SerializeObject.Serialize<IOrder>(_path, _orders);
+            SerializeObject.Serialize<IProcessing>(_path, _processings);
         }
 
         /// <summary>
@@ -49,13 +49,13 @@ namespace Cafe.Data.Storage.Json
         /// <param name="jsonConverter"></param>
         public void Restore(params JsonConverter[] jsonConverter)
         {
-            _orders=DeserializeObject.Deserialize<IOrder>(_path, jsonConverter).ToList();
+            _processings = DeserializeObject.Deserialize<IProcessing>(_path, jsonConverter).ToList();
         }
 
         /// <summary>
         /// A method that returns a set of elements.
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<IOrder> GetAll() => _orders;
+        public IEnumerable<IProcessing> GetAll() => _processings;
     }
 }

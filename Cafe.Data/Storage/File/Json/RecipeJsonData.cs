@@ -1,6 +1,5 @@
 ﻿using Newtonsoft.Json;
 using Cafe.DI.Interfaces.Serialization;
-using Cafe.DI.Interfaces.Models;
 using Cafe.Data.Storage.Serialization;
 using Cafe.DI.Interfaces.Recipe;
 
@@ -53,6 +52,10 @@ namespace Cafe.Data.Storage.Json
             _recipes = DeserializeObject.Deserialize<IRecipe>(_path, jsonConverter).ToList();
         }
 
+        /// <summary>
+        /// A method that returns a set of elements.
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<IRecipe> GetAll() => _recipes;
     }
 }
