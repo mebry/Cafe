@@ -9,6 +9,6 @@ namespace Cafe.DI.UserInterfaces
     public interface IChief: IPerson
     {
         void ExecuteOrder(IOrder order);
-        void CreateRecipe(IProduct product);
+        void CreateRecipe(IRecipe product);
     }
 }
