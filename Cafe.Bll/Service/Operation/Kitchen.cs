@@ -20,8 +20,8 @@ namespace Cafe.Bll.Service.Operation
         public Kitchen(List<IIngredientsStorage> ingredientsStorages,
             List<IProcessing> processing, List<IOrder> orders, List<IRecipe> recipes)
         {
-            if (IngredientsStorages == null)
-                throw new ArgumentNullException(nameof(IngredientsStorages));
+            if (ingredientsStorages == null)
+                throw new ArgumentNullException(nameof(ingredientsStorages));
 
             if (processing == null)
                 throw new ArgumentNullException(nameof(processing));
