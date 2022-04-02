@@ -2,10 +2,14 @@
 
 namespace Cafe.DI.OperationInterfaces.Processing
 {
+    /// <summary>
+    /// Interface describing the type of processing.
+    /// </summary>
     public interface IProcessing
     {
-        ProcessingType Operation { get; set; }
         int Price { get; }
+        TimeSpan TimeSpan { get; }
+        ProcessingType Operation { get; }
 
         void Execute();
     }

@@ -3,6 +3,9 @@ using Cafe.DI.ModelInterfaces;
 
 namespace Cafe.DI.RecipeInterfaces
 {
+    /// <summary>
+    /// Interface describing the finished recipe.
+    /// </summary>
     public interface IProduct
     {
         int TotalPrice { get; }

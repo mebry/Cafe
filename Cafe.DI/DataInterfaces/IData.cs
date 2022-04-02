@@ -1,5 +1,9 @@
 ﻿namespace Cafe.DI.DataInterfaces
 {
+    /// <summary>
+    /// The interface responsible for working with a collection of elements.
+    /// </summary>
+    /// <typeparam name="T">Generalized type.</typeparam>
     public interface IData<T>
     {
         void Add(T item);
