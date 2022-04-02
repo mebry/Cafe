@@ -59,7 +59,7 @@ namespace Cafe.Tests.JsonTests
         [TestMethod]
         public void Restore_ReadDataFromFile_NotThrowsException()
         {
-            var recipes = new RecipeJsonData(GetData.RecipeJsonDataPath, GetData.GetRecipes());
+            var recipes = new RecipeJsonData(GetData.RecipeJsonDataPath, new List<IRecipe>());
 
             recipes.Restore(new CookingStepConverter(), new IngredientConverter(),new RecipeConverter());
         }
@@ -70,7 +70,7 @@ namespace Cafe.Tests.JsonTests
         [TestMethod]
         public void Restore_ReadDataFromFileWithoutTheConverter_ThrowsException()
         {
-            var recipes = new RecipeJsonData(GetData.RecipeJsonDataPath, GetData.GetRecipes());
+            var recipes = new RecipeJsonData(GetData.RecipeJsonDataPath, new List<IRecipe>());
 
             try
             {
@@ -90,7 +90,7 @@ namespace Cafe.Tests.JsonTests
         [TestMethod]
         public void Restore_ReadDataFromFileCheckingTheAppearanceOfData_IsTrue()
         {
-            var recipes = new RecipeJsonData(GetData.RecipeJsonDataPath, GetData.GetRecipes());
+            var recipes = new RecipeJsonData(GetData.RecipeJsonDataPath, new List<IRecipe>());
 
             recipes.Restore(new CookingStepConverter(), new IngredientConverter(), new RecipeConverter());
             int count = recipes.GetAll().Count();

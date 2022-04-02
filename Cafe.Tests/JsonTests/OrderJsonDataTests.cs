@@ -59,7 +59,7 @@ namespace Cafe.Tests.JsonTests
         [TestMethod]
         public void Restore_ReadDataFromFile_NotThrowsException()
         {
-            var orders = new OrderJsonData(GetData.OrderJsonPath, GetData.GetOrders());
+            var orders = new OrderJsonData(GetData.OrderJsonPath, new List<IOrder>());
 
             orders.Restore(new OrderConverter(), new PlatterConverter());
         }
@@ -70,7 +70,7 @@ namespace Cafe.Tests.JsonTests
         [TestMethod]
         public void Restore_ReadDataFromFileWithoutTheConverter_ThrowsException()
         {
-            var orders = new OrderJsonData(GetData.OrderJsonPath, GetData.GetOrders());
+            var orders = new OrderJsonData(GetData.OrderJsonPath, new List<IOrder>());
 
             try
             {
@@ -90,7 +90,7 @@ namespace Cafe.Tests.JsonTests
         [TestMethod]
         public void Restore_ReadDataFromFileCheckingTheAppearanceOfData_IsTrue()
         {
-            var orders = new OrderJsonData(GetData.OrderJsonPath, GetData.GetOrders());
+            var orders = new OrderJsonData(GetData.OrderJsonPath, new List<IOrder>());
 
             orders.Restore(new OrderConverter(), new PlatterConverter());
             int count = orders.GetAll().Count();
