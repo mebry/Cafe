@@ -19,6 +19,10 @@ namespace Cafe.Tests.TestData
         public static string ProcessingJsonDataPath = "ProcessingStorage.json";
         public static string PlatterJsonDataPath = "PlatterStorage.json";
 
+        /// <summary>
+        /// Method for getting data.
+        /// </summary>
+        /// <returns></returns>
         public static List<IIngredient> GetIngredients()
         {
             var ingredients = new List<IIngredient>();
@@ -31,6 +35,10 @@ namespace Cafe.Tests.TestData
             return ingredients;
         }
 
+        /// <summary>
+        /// Method for getting data.
+        /// </summary>
+        /// <returns></returns>
         public static List<(IIngredient, int)> GetTupleIngredients()
         {
             var ingredients = new List<(IIngredient, int)>();
@@ -43,8 +51,16 @@ namespace Cafe.Tests.TestData
             return ingredients;
         }
 
+        /// <summary>
+        /// Method for getting data.
+        /// </summary>
+        /// <returns></returns>
         public static IStorageConditions GetStandartConditions() => new Conditions(-10, 30);
 
+        /// <summary>
+        /// Method for getting data.
+        /// </summary>
+        /// <returns></returns>
         public static List<IIngredientsStorage> GetIngredientsStorages()
         {
             var storages = new List<IIngredientsStorage>();
@@ -56,6 +72,10 @@ namespace Cafe.Tests.TestData
             return storages;
         }
 
+        /// <summary>
+        /// Method for getting data.
+        /// </summary>
+        /// <returns></returns>
         public static List<IPlatter> GetPlatters()
         {
             var platters = new List<IPlatter>();
@@ -67,6 +87,10 @@ namespace Cafe.Tests.TestData
             return platters;
         }
 
+        /// <summary>
+        /// Method for getting data.
+        /// </summary>
+        /// <returns></returns>
         public static List<IOrder> GetOrders()
         {
             var orders = new List<IOrder>();
@@ -77,6 +101,10 @@ namespace Cafe.Tests.TestData
             return orders;
         }
 
+        /// <summary>
+        /// Method for getting data.
+        /// </summary>
+        /// <returns></returns>
         public static List<ICookingStep> GetCookingSteps()
         {
             var steps = new List<ICookingStep>();
@@ -93,6 +121,10 @@ namespace Cafe.Tests.TestData
             return steps;
         }
 
+        /// <summary>
+        /// Method for getting data.
+        /// </summary>
+        /// <returns></returns>
         public static List<IRecipe> GetRecipes()
         {
             var recipes = new List<IRecipe>();
@@ -109,6 +141,10 @@ namespace Cafe.Tests.TestData
             return recipes;
         }
 
+        /// <summary>
+        /// Method for getting data.
+        /// </summary>
+        /// <returns></returns>
         public static List<IProcessing> GetProcessing()
         {
             var processing = new List<IProcessing>();
@@ -121,6 +157,10 @@ namespace Cafe.Tests.TestData
             return processing;
         }
 
+        /// <summary>
+        /// Method for getting data.
+        /// </summary>
+        /// <returns></returns>
         public static List<(TypeOfProduct, string)> GetDataForMeal()
         {
             var list = new List<(TypeOfProduct, string)>();
