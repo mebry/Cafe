@@ -8,8 +8,8 @@ namespace Cafe.DI.Interfaces.Recipe
     /// </summary>
     public interface ICookingStep
     {
-        Tuple<ProcessingType, TimeSpan> Type { get; }
-        List<Tuple<IIngredient, int>> Ingredients { get; }
+        (ProcessingType, TimeSpan) Type { get; }
+        List<(IIngredient, int)> Ingredients { get; }
         TimeSpan TimeSpan { get; }
     }
 }

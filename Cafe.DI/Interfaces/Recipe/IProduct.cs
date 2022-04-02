@@ -12,7 +12,7 @@ namespace Cafe.DI.Interfaces.Recipe
         string Name { get; }
         TypeOfProduct TypeOfProduct { get; }
         List<ICookingStep> CookingSteps { get; }
-        List<Tuple<IIngredient, int>> Ingredients { get; }  
+        List<(IIngredient, int)> Ingredients { get; }  
     }
 }
 
