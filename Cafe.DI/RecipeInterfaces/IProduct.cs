@@ -1,4 +1,5 @@
 ﻿using Cafe.DI.Enums;
+using Cafe.DI.ModelInterfaces;
 
 namespace Cafe.DI.RecipeInterfaces
 {

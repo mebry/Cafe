@@ -6,5 +6,6 @@ namespace Cafe.DI.ModelInterfaces
     {
         TypeOfProduct TypeOfProduct { get; }
         string Name { get; }
+        int Price { get; }
     }
 }

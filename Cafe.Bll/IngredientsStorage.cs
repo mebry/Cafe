@@ -1,0 +1,125 @@
+﻿using Newtonsoft.Json;
+using Cafe.DI.Enums;
+using Cafe.DI.ModelInterfaces;
+
+namespace Cafe.Bll
+{
+    /// <summary>
+    /// The class responsible for storing ingredients.
+    /// </summary>
+    public class IngredientsStorage : IIngredientsStorage
+    {
+        [JsonProperty(PropertyName = "_platers")]
+        private List<Tuple<IIngredient, int>> _ingredients;
+
+        /// <summary>
+        /// Constructor for filling in data.
+        /// </summary>
+        /// <param name="ingredients"></param>
+        /// <param name="numberOfPlaces"></param>
+        /// <param name="maxGrammingForOneIngredients"></param>
+        /// <param name="storageConditions"></param>
+        /// <exception cref="ArgumentException"></exception>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        public IngredientsStorage(List<Tuple<IIngredient, int>> ingredients, int numberOfPlaces,
+            int maxGrammingForOneIngredients, IStorageConditions storageConditions)
+        {
+            if (ingredients.Count <= 0)
+                throw new ArgumentException(nameof(ingredients));
+
+            if (ingredients == null)
+                throw new ArgumentNullException(nameof(ingredients));
+
+            if (numberOfPlaces <= 0)
+                throw new ArgumentOutOfRangeException(nameof(numberOfPlaces));
+
+            if (maxGrammingForOneIngredients <= 0)
+                throw new ArgumentOutOfRangeException(nameof(numberOfPlaces));
+
+            if (storageConditions == null)
+                throw new ArgumentNullException(nameof(storageConditions));
+
+            _ingredients = ingredients;
+            NumberOfPlaces = numberOfPlaces;
+            MaxGrammingForOneIngredients = maxGrammingForOneIngredients;
+            StorageConditions = storageConditions;
+        }
+
+        [JsonProperty(PropertyName = "_platers")]
+        public int NumberOfPlaces { get; }
+
+        [JsonProperty(PropertyName = "_platers")]
+        public int MaxGrammingForOneIngredients { get; }
+
+        [JsonProperty(PropertyName = "_platers")]
+        [JsonConverter(typeof(ConcreteTypeConverter<Conditions>))]
+        public IStorageConditions StorageConditions { get; }
+
+        /// <summary>
+        /// The method of adding a new ingredient to the storage.
+        /// </summary>
+        /// <param name="item"></param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        public void Add(Tuple<IIngredient, int> item)
+        {
+            if (item.Item1 == null)
+                throw new ArgumentNullException(nameof(item));
+
+            if (item.Item2 <= 0)
+                throw new ArgumentOutOfRangeException(nameof(item));
+
+            if (item.Item2 > MaxGrammingForOneIngredients)
+                throw new ArgumentOutOfRangeException(nameof(item));
+
+            _ingredients.Add(item);
+        }
+        /// <summary>
+        /// Method for getting a list of ingredients stored in the storage.
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<Tuple<IIngredient, int>> GetAll()
+        {
+            return _ingredients;
+        }
+
+        /// <summary>
+        /// The method of obtaining the ingredient from the storage.
+        /// </summary>
+        /// <param name="typeOfIngredient"></param>
+        /// <param name="numberOfGrams"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentException"></exception>
+        public Tuple<IIngredient, int> GetIngredients(TypeOfIngredient typeOfIngredient, int numberOfGrams)
+        {
+            foreach (var ingredient in _ingredients)
+            {
+                if (ingredient.Item1.TypeOfIngredient == typeOfIngredient &&
+                    ingredient.Item2 >= numberOfGrams)
+                {
+                    return ingredient;
+                }
+            }
+
+            throw new ArgumentException(nameof(typeOfIngredient));
+        }
+
+        /// <summary>
+        /// The method of removing the ingredient in the storage.
+        /// </summary>
+        /// <param name="item"></param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        public void Remove(Tuple<IIngredient, int> item)
+        {
+            if (item.Item1 == null)
+                throw new ArgumentNullException(nameof(item));
+
+            if (item.Item2 <= 0)
+                throw new ArgumentOutOfRangeException(nameof(item));
+
+            _ingredients.Remove(item);
+        }
+    }
+}

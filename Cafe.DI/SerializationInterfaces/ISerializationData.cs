@@ -2,9 +2,10 @@
 
 namespace Cafe.DI.SerializationInterfaces
 {
-    public interface ISerializationData
+    public interface ISerializationData<T>
     {
-        void Read<T>(IEnumerable<T> data);
-        IEnumerable<T> Restore<T>(JsonConverter jsonConverter, IDeserializeObject deserialize);
+        void Read();
+        void Restore(params JsonConverter[] jsonConverter);
+        IEnumerable<T> GetAll();
     }
 }
