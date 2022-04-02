@@ -64,6 +64,9 @@ namespace Cafe.Bll.Service.Operation
             /// <param name="order"></param>
             public static void ExecuteOrder(IOrder order)
             {
+                if(order==null)
+                    throw new ArgumentNullException(nameof(order));
+
                 var recipes = GetRecipes(order);
 
                 StartProcess(recipes);
