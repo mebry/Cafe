@@ -2,7 +2,7 @@
 using Cafe.DI.Interfaces.Operation.Processing;
 using Cafe.DI.Interfaces.Recipe;
 
-namespace Cafe.Bll.Models
+namespace Cafe.Bll.Service.Operation
 {
     /// <summary>
     /// The class responsible for cooking.

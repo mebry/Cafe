@@ -10,4 +10,8 @@
     <ProjectReference Include="..\Cafe.DI\Cafe.DI.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Service\NewFolder\" />
+  </ItemGroup>
+
 </Project>
