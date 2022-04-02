@@ -2,7 +2,7 @@
 using Cafe.DI.Interfaces.Models;
 using Newtonsoft.Json;
 
-namespace Cafe.Bll.Models
+namespace Cafe.Bll.Models.Prescription
 {
     /// <summary>
     /// The class responsible for the description of the ingredient.

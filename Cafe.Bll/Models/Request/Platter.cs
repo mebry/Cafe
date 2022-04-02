@@ -2,7 +2,7 @@
 using Cafe.DI.Enums;
 using Cafe.DI.Interfaces.Models;
 
-namespace Cafe.Bll.Models
+namespace Cafe.Bll.Models.Request
 {
     /// <summary>
     /// The class responsible for the type of dish and its name.

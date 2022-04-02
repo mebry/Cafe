@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Cafe.DI.Interfaces.Models;
 
-namespace Cafe.Bll.Models
+namespace Cafe.Bll.Models.Request
 {
     /// <summary>
     /// A class for registering orders.

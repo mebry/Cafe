@@ -3,7 +3,7 @@ using Cafe.DI.Enums;
 using Cafe.DI.Interfaces.Models;
 using Cafe.DI.Interfaces.Recipe;
 
-namespace Cafe.Bll.Models
+namespace Cafe.Bll.Models.Prescription
 {
     /// <summary>
     /// A class describing the cooking step.

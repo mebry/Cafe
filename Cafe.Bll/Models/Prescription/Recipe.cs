@@ -3,7 +3,7 @@ using Cafe.DI.Interfaces.Models;
 using Cafe.DI.Interfaces.Recipe;
 using Newtonsoft.Json;
 
-namespace Cafe.Bll.Models
+namespace Cafe.Bll.Models.Prescription
 {
     /// <summary>
     /// A class describing a cooking recipe.

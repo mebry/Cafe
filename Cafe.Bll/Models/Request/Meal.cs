@@ -1,7 +1,7 @@
 ﻿using Cafe.DI.Enums;
 using Cafe.DI.Interfaces.Models;
 
-namespace Cafe.Bll.Models
+namespace Cafe.Bll.Models.Request
 {
     /// <summary>
     /// A class describing the essence of the food that is being ordered.

@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Cafe.DI.Interfaces.Models;
 
-namespace Cafe.Bll.Models
+namespace Cafe.Bll.Models.Warehouse
 {
     /// <summary>
     /// The class responsible for storing the temperature range.

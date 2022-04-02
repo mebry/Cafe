@@ -2,7 +2,7 @@
 using Cafe.DI.Enums;
 using Cafe.DI.Interfaces.Operation.Processing;
 
-namespace Cafe.Bll.Models
+namespace Cafe.Bll.Models.Prescription
 {
     /// <summary>
     /// The class responsible for the processing of ingredients.
