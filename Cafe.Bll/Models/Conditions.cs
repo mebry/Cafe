@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
-using Cafe.DI.ModelInterfaces;
+using Cafe.DI.Interfaces.Models;
 
-namespace Cafe.Bll
+namespace Cafe.Bll.Models
 {
     /// <summary>
     /// The class responsible for storing the temperature range.
@@ -38,5 +38,17 @@ namespace Cafe.Bll
 
         [JsonProperty(PropertyName = "MaxTemperature")]
         public int MaxTemperature { get; }
+
+        public override bool Equals(object? obj)
+        {
+            return obj is Conditions conditions &&
+                   MinTemperature == conditions.MinTemperature &&
+                   MaxTemperature == conditions.MaxTemperature;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(MinTemperature, MaxTemperature);
+        }
     }
 }

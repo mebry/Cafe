@@ -1,8 +1,8 @@
 ﻿using Newtonsoft.Json;
 using Cafe.DI.Enums;
-using Cafe.DI.ModelInterfaces;
+using Cafe.DI.Interfaces.Models;
 
-namespace Cafe.Bll
+namespace Cafe.Bll.Models
 {
     /// <summary>
     /// The class responsible for the type of dish and its name.
@@ -40,5 +40,27 @@ namespace Cafe.Bll
 
         [JsonProperty(PropertyName = "Price")]
         public int Price { get; }
+
+        /// <summary>
+        /// Redefined method.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns>Boolean value.</returns>
+        public override bool Equals(object? obj)
+        {
+            return obj is Platter platter &&
+                   TypeOfProduct == platter.TypeOfProduct &&
+                   Name == platter.Name &&
+                   Price == platter.Price;
+        }
+
+        /// <summary>
+        /// Redefined method.
+        /// </summary>
+        /// <returns></returns>
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(TypeOfProduct, Name, Price);
+        }
     }
 }

@@ -1,8 +1,8 @@
 ﻿using Newtonsoft.Json;
 using Cafe.DI.Enums;
-using Cafe.DI.ModelInterfaces;
+using Cafe.DI.Interfaces.Models;
 
-namespace Cafe.Bll
+namespace Cafe.Bll.Models
 {
     /// <summary>
     /// The class responsible for storing ingredients.

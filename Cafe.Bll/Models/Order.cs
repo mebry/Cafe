@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
-using Cafe.DI.ModelInterfaces;
+using Cafe.DI.Interfaces.Models;
 
-namespace Cafe.Bll
+namespace Cafe.Bll.Models
 {
     /// <summary>
     /// A class for registering orders.
@@ -25,7 +25,6 @@ namespace Cafe.Bll
         {
             if(id<=0)
                 throw new ArgumentOutOfRangeException(nameof(id));
-
 
             if(date<=DateTime.MinValue)
                 throw new ArgumentOutOfRangeException(nameof(date));

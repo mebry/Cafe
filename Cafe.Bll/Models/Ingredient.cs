@@ -1,8 +1,8 @@
 ﻿using Cafe.DI.Enums;
-using Cafe.DI.ModelInterfaces;
+using Cafe.DI.Interfaces.Models;
 using Newtonsoft.Json;
 
-namespace Cafe.Bll
+namespace Cafe.Bll.Models
 {
     /// <summary>
     /// The class responsible for the description of the ingredient.
