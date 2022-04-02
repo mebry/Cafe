@@ -1,11 +1,12 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
-using System.Linq;
-using Cafe.Data.Storage.Json;
 using Cafe.DI.Interfaces.Operation.Processing;
 using Cafe.DI.Interfaces.Models;
 using Cafe.DI.Enums;
-using Cafe.Bll.Models;
+using Cafe.Bll.Models.Prescription;
+using Cafe.Bll.Models.Request;
+using Cafe.Bll.Models.Users;
+using Cafe.Bll.Models.Warehouse;
 using Cafe.DI.Interfaces.Recipe;
 
 namespace Cafe.Tests.TestData
@@ -16,6 +17,7 @@ namespace Cafe.Tests.TestData
         public static string IngredientsStorageJsonPath = "IngredientsStorage.json";
         public static string RecipeJsonDataPath = "RecipeStorage.json";
         public static string ProcessingJsonDataPath = "ProcessingStorage.json";
+        public static string PlatterJsonDataPath = "PlatterStorage.json";
 
         public static List<IIngredient> GetIngredients()
         {
@@ -117,6 +119,17 @@ namespace Cafe.Tests.TestData
             processing.Add(new Processing(40, new System.TimeSpan(0, 0, 0, 0, 30), ProcessingType.Bake));
 
             return processing;
+        }
+
+        public static List<(TypeOfProduct, string)> GetDataForMeal()
+        {
+            var list = new List<(TypeOfProduct, string)>();
+
+            list.Add((TypeOfProduct.Dish, "Pasta"));
+            list.Add((TypeOfProduct.Dish, "Butter"));
+            list.Add((TypeOfProduct.Dish, "Chicken"));
+
+            return list;
         }
     }
 }

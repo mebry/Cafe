@@ -3,7 +3,7 @@ using Cafe.DI.Enums;
 using Cafe.Bll.Models.Prescription;
 using Cafe.Bll.Models.Warehouse;
 
-namespace Cafe.Tests.ModelsTests.Prescription
+namespace Cafe.Tests.ModelTests.Prescription
 {
     [TestClass]
     public class ProcessingTests

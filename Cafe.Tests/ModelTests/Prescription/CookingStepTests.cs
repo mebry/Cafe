@@ -4,7 +4,7 @@ using Cafe.DI.Interfaces.Models;
 using Cafe.DI.Enums;
 using Cafe.Bll.Models.Prescription;
 
-namespace Cafe.Tests.ModelsTests.Prescription
+namespace Cafe.Tests.ModelTests.Prescription
 {
     [TestClass]
     public class CookingStepTests
