@@ -19,7 +19,7 @@ namespace Cafe.Tests.JsonTests
         public void RecipeJsonData_AddNullListByConstructor_ThrowsException()
         {
             Assert.ThrowsException<System.ArgumentNullException>(() =>
-                new RecipeJsonData("path.json", null));
+                new JsonData<IRecipe>("path.json", null));
         }
 
 
@@ -30,7 +30,7 @@ namespace Cafe.Tests.JsonTests
         public void RecipeJsonData_AddNullPathByConstructor_ThrowsException()
         {
             Assert.ThrowsException<System.ArgumentNullException>(() =>
-                new RecipeJsonData(null, new List<IRecipe>()));
+                new JsonData<IRecipe>(null, new List<IRecipe>()));
         }
 
         /// <summary>
@@ -39,7 +39,7 @@ namespace Cafe.Tests.JsonTests
         [TestMethod]
         public void RecipeJsonData_AddValidParameterByConstructor_IsTrue()
         {
-            new RecipeJsonData("path.json", new List<IRecipe>());
+            new JsonData<IRecipe>("path.json", new List<IRecipe>());
         }
 
         /// <summary>
@@ -48,7 +48,7 @@ namespace Cafe.Tests.JsonTests
         [TestMethod]
         public void Write_SaveDataToFile_IsTrue()
         {
-            var recipes = new RecipeJsonData(GetData.RecipeJsonDataPath, GetData.GetRecipes());
+            var recipes = new JsonData<IRecipe>(GetData.RecipeJsonDataPath, GetData.GetRecipes());
 
             recipes.Write();
         }
@@ -59,7 +59,7 @@ namespace Cafe.Tests.JsonTests
         [TestMethod]
         public void Restore_ReadDataFromFile_NotThrowsException()
         {
-            var recipes = new RecipeJsonData(GetData.RecipeJsonDataPath, new List<IRecipe>());
+            var recipes = new JsonData<IRecipe>(GetData.RecipeJsonDataPath, new List<IRecipe>());
 
             recipes.Restore(new CookingStepConverter(), new IngredientConverter(),new RecipeConverter());
         }
@@ -70,7 +70,7 @@ namespace Cafe.Tests.JsonTests
         [TestMethod]
         public void Restore_ReadDataFromFileWithoutTheConverter_ThrowsException()
         {
-            var recipes = new RecipeJsonData(GetData.RecipeJsonDataPath, new List<IRecipe>());
+            var recipes = new JsonData<IRecipe>(GetData.RecipeJsonDataPath, new List<IRecipe>());
 
             try
             {
@@ -90,7 +90,7 @@ namespace Cafe.Tests.JsonTests
         [TestMethod]
         public void Restore_ReadDataFromFileCheckingTheAppearanceOfData_IsTrue()
         {
-            var recipes = new RecipeJsonData(GetData.RecipeJsonDataPath, new List<IRecipe>());
+            var recipes = new JsonData<IRecipe>(GetData.RecipeJsonDataPath, new List<IRecipe>());
 
             recipes.Restore(new CookingStepConverter(), new IngredientConverter(), new RecipeConverter());
             int count = recipes.GetAll().Count();

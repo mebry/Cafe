@@ -20,7 +20,7 @@ namespace Cafe.Tests.JsonTests
         public void PlatterJsonData_AddNullListByConstructor_ThrowsException()
         {
             Assert.ThrowsException<System.ArgumentNullException>(() =>
-                new OrderJsonData("path.json", null));
+                new JsonData<IPlatter>("path.json", null));
         }
 
 
@@ -31,7 +31,7 @@ namespace Cafe.Tests.JsonTests
         public void PlatterJsonData_AddNullPathByConstructor_ThrowsException()
         {
             Assert.ThrowsException<System.ArgumentNullException>(() =>
-                new PlatterJsonData(null, new List<IPlatter>()));
+                new JsonData<IPlatter>(null, new List<IPlatter>()));
         }
 
         /// <summary>
@@ -40,7 +40,7 @@ namespace Cafe.Tests.JsonTests
         [TestMethod]
         public void PlatterJsonData_AddValidParameterByConstructor_IsTrue()
         {
-            new PlatterJsonData(GetData.PlatterJsonDataPath, new List<IPlatter>());
+            new JsonData<IPlatter>(GetData.PlatterJsonDataPath, new List<IPlatter>());
         }
 
         /// <summary>
@@ -49,7 +49,7 @@ namespace Cafe.Tests.JsonTests
         [TestMethod]
         public void Write_SaveDataToFile_IsTrue()
         {
-            var platters = new PlatterJsonData(GetData.PlatterJsonDataPath, GetData.GetPlatters());
+            var platters = new JsonData<IPlatter>(GetData.PlatterJsonDataPath, GetData.GetPlatters());
 
             platters.Write();
         }
@@ -60,7 +60,7 @@ namespace Cafe.Tests.JsonTests
         [TestMethod]
         public void Restore_ReadDataFromFile_NotThrowsException()
         {
-            var platters = new PlatterJsonData(GetData.PlatterJsonDataPath, new List<IPlatter>());
+            var platters = new JsonData<IPlatter>(GetData.PlatterJsonDataPath, new List<IPlatter>());
 
             platters.Restore(new PlatterConverter());
         }
@@ -71,7 +71,7 @@ namespace Cafe.Tests.JsonTests
         [TestMethod]
         public void Restore_ReadDataFromFileWithoutTheConverter_ThrowsException()
         {
-            var platters = new PlatterJsonData(GetData.PlatterJsonDataPath, new List<IPlatter>());
+            var platters = new JsonData<IPlatter>(GetData.PlatterJsonDataPath, new List<IPlatter>());
 
 
             try
@@ -92,7 +92,7 @@ namespace Cafe.Tests.JsonTests
         [TestMethod]
         public void Restore_ReadDataFromFileCheckingTheAppearanceOfData_IsTrue()
         {
-            var platters = new PlatterJsonData(GetData.PlatterJsonDataPath, new List<IPlatter>());
+            var platters = new JsonData<IPlatter>(GetData.PlatterJsonDataPath, new List<IPlatter>());
 
             platters.Restore(new PlatterConverter());
 

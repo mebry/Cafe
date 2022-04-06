@@ -19,9 +19,8 @@ namespace Cafe.Tests.JsonTests
         public void OrderJsonData_AddNullListByConstructor_ThrowsException()
         {
             Assert.ThrowsException<System.ArgumentNullException>(() =>
-                new OrderJsonData("path.json", null));
+                new JsonData<IOrder>("path.json", null));
         }
-
 
         /// <summary>
         /// Checking the constructor when passing a null parameter.
@@ -30,7 +29,7 @@ namespace Cafe.Tests.JsonTests
         public void OrderJsonData_AddNullPathByConstructor_ThrowsException()
         {
             Assert.ThrowsException<System.ArgumentNullException>(() =>
-                new OrderJsonData(null, new List<IOrder>()));
+                new JsonData<IOrder>(null, new List<IOrder>()));
         }
 
         /// <summary>
@@ -39,7 +38,7 @@ namespace Cafe.Tests.JsonTests
         [TestMethod]
         public void OrderJsonData_AddValidParameterByConstructor_IsTrue()
         {
-            new OrderJsonData(GetData.OrderJsonPath, new List<IOrder>());
+            new JsonData<IOrder>(GetData.OrderJsonPath, new List<IOrder>());
         }
 
         /// <summary>
@@ -48,7 +47,7 @@ namespace Cafe.Tests.JsonTests
         [TestMethod]
         public void Write_SaveDataToFile_IsTrue()
         {
-            var orders = new OrderJsonData(GetData.OrderJsonPath, GetData.GetOrders());
+            var orders = new JsonData<IOrder>(GetData.OrderJsonPath, GetData.GetOrders());
 
             orders.Write();
         }
@@ -59,7 +58,7 @@ namespace Cafe.Tests.JsonTests
         [TestMethod]
         public void Restore_ReadDataFromFile_NotThrowsException()
         {
-            var orders = new OrderJsonData(GetData.OrderJsonPath, new List<IOrder>());
+            var orders = new JsonData<IOrder>(GetData.OrderJsonPath, new List<IOrder>());
 
             orders.Restore(new OrderConverter(), new PlatterConverter());
         }
@@ -70,7 +69,7 @@ namespace Cafe.Tests.JsonTests
         [TestMethod]
         public void Restore_ReadDataFromFileWithoutTheConverter_ThrowsException()
         {
-            var orders = new OrderJsonData(GetData.OrderJsonPath, new List<IOrder>());
+            var orders = new JsonData<IOrder>(GetData.OrderJsonPath, new List<IOrder>());
 
             try
             {
@@ -90,7 +89,7 @@ namespace Cafe.Tests.JsonTests
         [TestMethod]
         public void Restore_ReadDataFromFileCheckingTheAppearanceOfData_IsTrue()
         {
-            var orders = new OrderJsonData(GetData.OrderJsonPath, new List<IOrder>());
+            var orders = new JsonData<IOrder>(GetData.OrderJsonPath, new List<IOrder>());
 
             orders.Restore(new OrderConverter(), new PlatterConverter());
             int count = orders.GetAll().Count();

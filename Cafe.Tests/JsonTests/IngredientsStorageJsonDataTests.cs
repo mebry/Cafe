@@ -19,7 +19,7 @@ namespace Cafe.Tests.JsonTests
         public void IngredientsStorageJsonData_AddNullListByConstructor_ThrowsException()
         {
             Assert.ThrowsException<System.ArgumentNullException>(() 
-                => new IngredientsStorageJsonData(GetData.IngredientsStorageJsonPath, null));
+                => new JsonData<IIngredientsStorage>(GetData.IngredientsStorageJsonPath, null));
         }
 
         /// <summary>
@@ -29,7 +29,7 @@ namespace Cafe.Tests.JsonTests
         public void IngredientsStorageJsonData_AddNullPathByConstructor_ThrowsException()
         {
             Assert.ThrowsException<System.ArgumentNullException>(() =>
-                new IngredientsStorageJsonData(null, GetData.GetIngredientsStorages()));
+                new JsonData<IIngredientsStorage>(null, GetData.GetIngredientsStorages()));
         }
 
         /// <summary>
@@ -38,7 +38,7 @@ namespace Cafe.Tests.JsonTests
         [TestMethod]
         public void IngredientsStorageJsonData_AddValidParameterByConstructor_IsTrue()
         {
-            new IngredientsStorageJsonData(GetData.IngredientsStorageJsonPath, GetData.GetIngredientsStorages());
+            new JsonData<IIngredientsStorage>(GetData.IngredientsStorageJsonPath, GetData.GetIngredientsStorages());
         }
 
         /// <summary>
@@ -48,7 +48,7 @@ namespace Cafe.Tests.JsonTests
         public void Write_SaveDataToFile_IsTrue()
         {
             var ingredientsStorageJson =
-                new IngredientsStorageJsonData(GetData.IngredientsStorageJsonPath, GetData.GetIngredientsStorages());
+                new JsonData<IIngredientsStorage>(GetData.IngredientsStorageJsonPath, GetData.GetIngredientsStorages());
 
             ingredientsStorageJson.Write();
         }
@@ -60,7 +60,7 @@ namespace Cafe.Tests.JsonTests
         public void Restore_ReadDataFromFile_NotThrowsException()
         {
             var ingredientsStorageJson =
-                new IngredientsStorageJsonData(GetData.IngredientsStorageJsonPath, GetData.GetIngredientsStorages());
+                new JsonData<IIngredientsStorage>(GetData.IngredientsStorageJsonPath, GetData.GetIngredientsStorages());
 
             ingredientsStorageJson.Restore(new IngredientConverter(), new IngredientsStorageConverter());
         }
@@ -72,7 +72,7 @@ namespace Cafe.Tests.JsonTests
         public void Restore_ReadDataFromFileWithoutTheConverter_ThrowsException()
         {
             var ingredientsStorageJson =
-                new IngredientsStorageJsonData(GetData.IngredientsStorageJsonPath, GetData.GetIngredientsStorages());
+                new JsonData<IIngredientsStorage>(GetData.IngredientsStorageJsonPath, GetData.GetIngredientsStorages());
 
             try
             {
@@ -93,7 +93,7 @@ namespace Cafe.Tests.JsonTests
         public void Restore_ReadDataFromFileCheckingTheAppearanceOfData_IsTrue()
         {
             var ingredientsStorageJson =
-                new IngredientsStorageJsonData(GetData.IngredientsStorageJsonPath, GetData.GetIngredientsStorages());
+                new JsonData<IIngredientsStorage>(GetData.IngredientsStorageJsonPath, GetData.GetIngredientsStorages());
 
             ingredientsStorageJson.Restore(new IngredientConverter(), new IngredientsStorageConverter());
             int count = ingredientsStorageJson.GetAll().Count();

@@ -20,7 +20,7 @@ namespace Cafe.Tests.JsonTests
         public void ProcessingJsonData_AddNullListByConstructor_ThrowsException()
         {
             Assert.ThrowsException<System.ArgumentNullException>(() =>
-                new ProcessingJsonData("path.json", null));
+                new JsonData<IProcessing>("path.json", null));
         }
 
 
@@ -31,7 +31,7 @@ namespace Cafe.Tests.JsonTests
         public void ProcessingJsonData_AddNullPathByConstructor_ThrowsException()
         {
             Assert.ThrowsException<System.ArgumentNullException>(() =>
-                new ProcessingJsonData(null, new List<IProcessing>()));
+                new JsonData<IProcessing>(null, new List<IProcessing>()));
         }
 
         /// <summary>
@@ -40,7 +40,7 @@ namespace Cafe.Tests.JsonTests
         [TestMethod]
         public void ProcessingJsonData_AddValidParameterByConstructor_IsTrue()
         {
-            new ProcessingJsonData("path.json", new List<IProcessing>());
+            new JsonData<IProcessing>("path.json", new List<IProcessing>());
         }
 
         /// <summary>
@@ -49,7 +49,7 @@ namespace Cafe.Tests.JsonTests
         [TestMethod]
         public void Write_SaveDataToFile_IsTrue()
         {
-            var processing = new ProcessingJsonData(GetData.ProcessingJsonDataPath, GetData.GetProcessing());
+            var processing = new JsonData<IProcessing>(GetData.ProcessingJsonDataPath, GetData.GetProcessing());
 
             processing.Write();
         }
@@ -60,7 +60,7 @@ namespace Cafe.Tests.JsonTests
         [TestMethod]
         public void Restore_ReadDataFromFile_NotThrowsException()
         {
-            var processing = new ProcessingJsonData(GetData.ProcessingJsonDataPath, new List<IProcessing>());
+            var processing = new JsonData<IProcessing>(GetData.ProcessingJsonDataPath, new List<IProcessing>());
 
             processing.Restore(new ProcessingConverter());
         }
@@ -71,7 +71,7 @@ namespace Cafe.Tests.JsonTests
         [TestMethod]
         public void Restore_ReadDataFromFileWithoutTheConverter_ThrowsException()
         {
-            var processing = new ProcessingJsonData(GetData.ProcessingJsonDataPath, new List<IProcessing>());
+            var processing = new JsonData<IProcessing>(GetData.ProcessingJsonDataPath, new List<IProcessing>());
 
             try
             {
@@ -91,7 +91,7 @@ namespace Cafe.Tests.JsonTests
         [TestMethod]
         public void Restore_ReadDataFromFileCheckingTheAppearanceOfData_IsTrue()
         {
-            var processing = new ProcessingJsonData(GetData.ProcessingJsonDataPath, new List<IProcessing>());
+            var processing = new JsonData<IProcessing>(GetData.ProcessingJsonDataPath, new List<IProcessing>());
 
             processing.Restore(new ProcessingConverter());
             int count = processing.GetAll().Count();
